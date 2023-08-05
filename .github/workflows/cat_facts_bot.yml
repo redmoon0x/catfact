@@ -15,5 +15,5 @@ jobs:
 
       - name: Run the bot
         run: |
-          python cat.py
+          python --cat.py
 

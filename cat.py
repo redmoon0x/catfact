@@ -3,7 +3,7 @@ from telethon.sync import TelegramClient, events
 
 API_ID = '1509431'
 API_HASH = '5d08c3603085ecea80b52deacf238204'
-BOT_TOKEN = '6065534515:AAHThuANaAbZPTsq3_53TCfD3XoTq82PXI'
+BOT_TOKEN = '6065534515:AAHThuANaAbZPTsq3_53TCfD3XoTq82P_XI'
 
 bot = TelegramClient('bot_session', API_ID, API_HASH).start(bot_token=BOT_TOKEN)
 
@@ -35,21 +35,10 @@ async def handle_meow(event):
         await event.respond("Oops! Something went wrong while fetching cat data. Please try again later.")
 
 
-@bot.on(events.NewMessage(pattern=r'^mequote$', incoming=True))
-async def handle_mequote(event):
-    try:
-        cat_quote_url = 'https://catfact.ninja/facts?limit=1'
-
-        # Get a random cat quote
-        cat_quote_response = requests.get(cat_quote_url)
-        cat_quote = cat_quote_response.json().get('data')[0]['fact']
-
-        # Prepare and send the cat quote
-        response_message = f"🐱 Here's a famous cat quote for you: \"{cat_quote}\""
-        await event.respond(response_message)
-
-    except requests.RequestException as e:
-        await event.respond("Oops! Something went wrong while fetching cat quotes. Please try again later.")
+@bot.on(events.NewMessage(pattern='^start$', incoming=True))
+async def handle_start(event):
+    await event.respond('meow')
 
 
 bot.run_until_disconnected()
+

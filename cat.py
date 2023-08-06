@@ -3,7 +3,7 @@ from telethon.sync import TelegramClient, events
 
 API_ID = '1509431'
 API_HASH = '5d08c3603085ecea80b52deacf238204'
-BOT_TOKEN = '6065534515:AAHksB5Ov268rMcKdWU_95uXd4cxeGq8he8'
+BOT_TOKEN = '6590710056:AAENOMtiu23tubXGJO876RDhxxmmG0fCFlY'
 
 bot = TelegramClient('bot_session', API_ID, API_HASH).start(bot_token=BOT_TOKEN)
 
